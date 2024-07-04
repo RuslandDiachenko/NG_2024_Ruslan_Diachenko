@@ -13,12 +13,15 @@ int main() {
     double N = 0.0;
     cout << "Enter radius of field: ";
     cin >> N;
-    cout << endl;
+
     // Konstantin postion.
     double x = 0.0, y = 0.0;
-    cout << "Enter Konstantin coordiantes (x, y): ";
-    cin >> x, y;
-    cout << endl;
+
+    cout << "Enter Konstantin coordiantes (x, y)." << endl;
+    cout << "X: ";
+    cin >> x;
+    cout << "Y: ";
+    cin >> y;
 
     // Calculate distance.
     distance_to_artifact = sqrt(pow((X - x), 2) + pow((Y - y), 2) );
