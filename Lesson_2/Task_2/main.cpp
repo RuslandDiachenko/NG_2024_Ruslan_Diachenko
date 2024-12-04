@@ -4,21 +4,25 @@ using namespace std;
 
 int main()
 {
+    // Init
     int numbers[5];
+
+    // Get numbers
     for (int number{0}; number != 5; number++)
     {
         cout << "Enter " << number+1 << " value: ";
         cin >> numbers[number];
     }
 
-    for (int x{0};x < 5;x++)
+    // Draw result
+    for (int row{0};row < 5;row++)
     {
-        for (int y{0}; y < 5;y++)
+        for (int col{0}; col < 5;col++)
         {
-            if (numbers[y] - 1 >= 0)
+            if (numbers[col] - 1 >= 0)
             {
                 cout << "*";
-                numbers[y] -= 1;
+                numbers[col] -= 1;
             } else {
                 cout << " ";
             }
