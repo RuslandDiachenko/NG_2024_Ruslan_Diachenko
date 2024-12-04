@@ -8,23 +8,20 @@ int main()
 {
     int frame{0};           // Frame for animation.
     int triangle{0};        // Triangle size.
-    cout << "\033[?25l";    // Hide cursor.
 
     cout << "Enter triangle size: ";
     cin >> triangle;
 
-    // Clear Console
-    cout << "\033[H";
-    cout << "\033[J";
+    system("cls");          // Clear console.
 
     do
     {
         switch (frame)
         {
             case 0:
-                for (int x{0}; x < triangle; x++)
+                for (int row{0}; row < triangle; row++)
                 {
-                    for (int y{0}; y <= x ; y++)
+                    for (int col{0}; col <= row ; col++)
                     {
                         cout << "#";
                     }
@@ -33,9 +30,9 @@ int main()
                 break;
 
             case 1:
-                for (int x{0}; x < triangle; x++)
+                for (int row{0}; row < triangle; row++)
                 {
-                    for (int y{0}; y < triangle - x ; y++)
+                    for (int col{0}; col < triangle - row ; col++)
                     {
                         cout << "#";
                     }
@@ -43,11 +40,12 @@ int main()
                 }
                 break;
             case 2:
-                for (int x{0}; x < triangle; x++)
+                for (int row{0}; row < triangle; row++)
                 {
-                    for (int y{0}; y < triangle; y++)
+                    for (int col{0}; col < triangle; col++)
                     {
-                        if (y < x) {
+                        if (col < row)
+                        {
                             cout << " ";
                         } else {
                             cout << "#";
@@ -57,11 +55,12 @@ int main()
                 }
                 break;
             case 3:
-                for (int x{0}; x < triangle; x++)
+                for (int row{0}; row < triangle; row++)
                 {
-                    for (int y{0}; y < triangle; y++)
+                    for (int col{0}; col < triangle; col++)
                     {
-                        if (y < triangle - x - 1) {
+                        if (col < triangle - row - 1)
+                        {
                             cout << " ";
                         } else {
                             cout << "#";
@@ -72,13 +71,12 @@ int main()
                 break;
         }
 
-        frame = frame == 3 ? 0 : frame + 1; // Select frame 0-3
+        // Select frame 0-3
+        if (frame == 3){ frame = 0; }
+        else frame += 1;
 
-        Sleep(1000);
-
-        // Clear Console
-        cout << "\033[H";
-        cout << "\033[J";
+        Sleep(1000);    // Animation speed.
+        system("cls");  // Clear Console
     } while(true);
     return 0;
 }
