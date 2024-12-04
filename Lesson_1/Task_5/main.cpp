@@ -9,14 +9,14 @@ int main() {
     cout << "Enter the height of the Christmas tree: ";
     cin >> height;
 
-    for ( int x = 0; x < height; x++)
+    for ( int row = 0; row < height; row++)
     {
-        for ( int y = 0; y < height; y++)
+        for ( int col = 0; col < height; col++)
         {
-            if (y >= height-1-x)
+            if (col >= height-1-row)
             {
                 cout << "*";
-                if (height-1-x-y) cout << "*";
+                if (height-1-row-col) cout << "*";
             }
             else cout << " ";
         }
